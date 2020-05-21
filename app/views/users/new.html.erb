@@ -1,12 +1,16 @@
 <h1>The Users</h1>
 
-<form method = "POST" action = "/users" accept-charset="UTF-8">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">  
-    <label for = "username"> User name: </label>
-    <input type = "text" id = "username" name = "username"> <br><br>
-    <label for = "email"> Email: </label>
-    <input type = "text" id = "email" name = "email"> <br> <br>
-    <label for = "Password"> Password: </label>
-    <input type = "password" id = "password" name = "password"> <br><br>
-    <input type = "submit" value = "submit">
-</form>
+<%= form_for @user, url: users_path, method: :post  do |form| %>
+    <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+    <%= form.label :username %>
+    <%= form.text_field :username %> <br><br>
+    <%= form.label :email %>
+    <%= form.text_field :email %><br><br>
+    <%= form.label :password %>
+    <%= form.password_field :password %> <br><br>
+    <%= form.submit %>
+<% end %>
