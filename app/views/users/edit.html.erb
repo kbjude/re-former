@@ -1,0 +1,16 @@
+<h1>Edit User</h1>
+
+<%= form_for @user, url: users_path, method: :put  do |form| %>
+    <ul>
+    <% @user.errors.full_messages.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+    </ul>
+    <%= form.label :username %>
+    <%= form.text_field :username %> <br><br>
+    <%= form.label :email %>
+    <%= form.text_field :email %><br><br>
+    <%= form.label :password %>
+    <%= form.password_field :password %> <br><br>
+    <%= form.submit %>
+<% end %>
