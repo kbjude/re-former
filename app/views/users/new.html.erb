@@ -1,6 +1,6 @@
 <h1>The Users</h1>
 
-# <form>
+# <form action = " <% users_path %> " method = "post">
 #     <label for = "username"> User name: </label>
 #     <input type = "text" id = "username" name = "username"> <br><br>
 #     <label for = "email"> Email: </label>
@@ -8,6 +8,17 @@
 #     <label for = "Password"> Pass word: </label>
 #     <input type = "text" id = "password" name = "password"> <br><br>
 #     <input type = "submit" value = "submit">
+# </form>
+
+# <form_tag @user, url: users_path(@user), html: { method: :put } do |form|>
+#     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">  
+#     <label for = "username"> User name: </label>	    <label for = "username"> User name: </label>
+#     <input type = "text" id = "username" name = "username"> <br><br>	    <input type = "text" id = "username" name = "username"> <br><br>
+#     <label for = "email"> Email: </label>	    <label for = "email"> Email: </label>
+#     <input type = "text" id = "email" name = "email"> <br> <br>	    <input type = "text" id = "email" name = "email"> <br> <br>
+#     <label for = "Password"> Pass word: </label>	    <label for = "Password"> Password: </label>
+#     <input type = "text" id = "password" name = "password"> <br><br>	    <input type = "password" id = "password" name = "password"> <br><br>
+#     <input type = "submit" value = "submit">	    <input type = "submit" value = "submit">
 # </form>
 
 <%= form_for (@user url:users_path) do |form| %>
